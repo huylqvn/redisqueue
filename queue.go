@@ -24,7 +24,7 @@ func NewQueue(cluster *redis.ClusterClient, queueName string) *Queue {
 	}
 }
 
-func (q *Queue) Close() {
+func (q *Queue) Stop() {
 	q.quit <- true
 	close(q.data)
 }

@@ -3,6 +3,7 @@ package queue
 import (
 	"context"
 	"fmt"
+	"time"
 )
 
 func Test() {
@@ -14,6 +15,7 @@ func Test() {
 	})
 	for i := 0; i < 10; i++ {
 		queue.Producer(fmt.Sprintf("{%d}", i))
+		time.Sleep(2 * time.Second)
 	}
-	queue.Close()
+	queue.Stop()
 }
